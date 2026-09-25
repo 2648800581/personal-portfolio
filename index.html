@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="唐天彪的机器人算法与 AI Agent 个人作品展示。" />
+    <title>唐天彪｜机器人算法与 AI Agent</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true">
+      <div class="ambient__grid"></div>
+      <div class="ambient__glow ambient__glow--cyan"></div>
+      <div class="ambient__glow ambient__glow--blue"></div>
+      <img class="ambient__robot ambient__robot--d1" src="assets/robots/agibot-d1-cutout.png" alt="" />
+      <img class="ambient__robot ambient__robot--themis" src="assets/robots/themis.png" alt="" />
+    </div>
+
+    <main>
+      <section id="intro" class="panel panel--intro is-visible" data-panel="intro">
+        <div class="intro-copy reveal">
+          <h1>你好，我是唐天彪</h1>
+          <p>
+            我关注机器人如何感知、规划并在真实世界中稳定行动，也在探索如何把大模型能力转化为真正可用的智能体产品。
+          </p>
+          <p>
+            我的实践横跨 SLAM 与导航、强化学习运动控制、机器人软硬件集成和 AI Agent 开发。
+          </p>
+        </div>
+
+        <div class="project-overview reveal reveal--late" aria-label="代表项目概览">
+          <article class="teaser">
+            <div class="teaser__image media-shell">
+              <img src="assets/projects/parls-gis-cover.jpg" alt="ParLS-GIS 科研项目" />
+              <span class="media-placeholder">parls-gis-cover.jpg</span>
+            </div>
+            <h2>ParLS-GIS 并行局部搜索</h2>
+          </article>
+          <article class="teaser">
+            <div class="teaser__image media-shell">
+              <img src="assets/projects/d1-navigation-cover.jpg" alt="Agibot D1 导航" />
+              <span class="media-placeholder">d1-navigation-cover.jpg</span>
+            </div>
+            <h2>Agibot D1 室内外导航</h2>
+          </article>
+          <article class="teaser">
+            <div class="teaser__image media-shell">
+              <img src="assets/projects/dual-arm-can-cover.jpg" alt="双臂 CAN 电机驱动" />
+              <span class="media-placeholder">dual-arm-can-cover.jpg</span>
+            </div>
+            <h2>人形双臂 CAN 驱动</h2>
+          </article>
+          <article class="teaser">
+            <div class="teaser__image media-shell">
+              <img src="assets/projects/themis-simulation-cover.jpg" alt="THEMIS 仿真" />
+              <span class="media-placeholder">themis-simulation-cover.jpg</span>
+            </div>
+            <h2>THEMIS Simulation</h2>
+          </article>
+          <article class="teaser">
+            <div class="teaser__image media-shell">
+              <img src="assets/projects/shibei-app-cover.jpg" alt="拾贝 App" />
+              <span class="media-placeholder">shibei-app-cover.jpg</span>
+            </div>
+            <h2>拾贝 Android App</h2>
+          </article>
+          <div class="teaser teaser--more" aria-hidden="true"><span>···</span></div>
+        </div>
+
+        <div class="scroll-cue reveal reveal--late" aria-hidden="true">
+          <span>SCROLL</span><i></i>
+        </div>
+      </section>
+
+      <section id="paper" class="panel project" data-panel="paper">
+        <div class="project-copy reveal">
+          <p class="project-kicker">RESEARCH</p>
+          <h2>ParLS-GIS</h2>
+          <p class="project-subtitle">广义独立集并行局部搜索算法</p>
+          <p class="project-summary">AAAI 2027 在投、学生一作。独立完成三项核心策略、算法实现、全部实验与论文编写。</p>
+        </div>
+        <div class="media-grid reveal reveal--late">
+          <figure class="media-shell media-grid__main">
+            <img src="assets/projects/parls-gis-cover.jpg" alt="ParLS-GIS 算法框架" />
+            <span class="media-placeholder">parls-gis-cover.jpg</span>
+          </figure>
+          <figure class="media-shell">
+            <img src="assets/projects/01_1.png" alt="ParLS-GIS 时间对比" />
+            <span class="media-placeholder">01_1.png</span>
+          </figure>
+          <figure class="media-shell">
+            <img src="assets/projects/01_2.png" alt="ParLS-GIS 扩展性分析" />
+            <span class="media-placeholder">01_2.png</span>
+          </figure>
+          <figure class="media-shell">
+            <img src="assets/projects/01_3.png" alt="ParLS-GIS 参数敏感性分析1" />
+            <span class="media-placeholder">01_3.png</span>
+          </figure>
+          <figure class="media-shell">
+            <img src="assets/projects/01_4.png" alt="ParLS-GIS 参数敏感性分析2" />
+            <span class="media-placeholder">01_4.png</span>
+          </figure>
+        </div>
+      </section>
+
+      <section id="d1-navigation" class="panel project project--reverse" data-panel="d1-navigation">
+        <div class="project-copy reveal">
+          <p class="project-kicker">ROBOT NAVIGATION</p>
+          <h2>Agibot D1</h2>
+          <p class="project-subtitle">四足机器人室内外 SLAM 与导航</p>
+          <p class="project-summary">基于 Mid360、FAST-LIO2 与 Nav2，打通约 20 m × 20 m 场地的建图、定位、规划与控制真机闭环；参与 GNSS + Mid360 的室外 SLAM 与导航。</p>
+        </div>
+        <div class="media-grid reveal reveal--late">
+          <figure class="media-shell media-grid__main">
+            <img src="assets/projects/02_1.jpg" alt="项目喜报" />
+            <span class="media-placeholder">02_1.jpg</span>
+          </figure>
+          <figure class="media-shell media-shell--video" data-title="Agibot D1 室外避障">
+            <video muted loop playsinline preload="metadata" src="assets/projects/02_2.mp4"></video>
+            <span class="media-placeholder">02_2.mp4</span>
+          </figure>
+          <figure class="media-shell media-shell--video" data-title="Agibot D1 室内导航">
+            <video muted loop playsinline preload="metadata" src="assets/projects/02_3.mp4"></video>
+            <span class="media-placeholder">02_3.mp4</span>
+          </figure>
+          <figure class="media-shell media-shell--video" data-title="Agibot D1 室外导航">
+            <video muted loop playsinline preload="metadata" src="assets/projects/02_4.mp4"></video>
+            <span class="media-placeholder">02_4.mp4</span>
+          </figure>
+        </div>
+      </section>
+
+      <section id="dual-arm" class="panel project" data-panel="dual-arm">
+        <div class="project-copy reveal">
+          <p class="project-kicker">ROBOT CONTROL</p>
+          <h2>Dual-arm</h2>
+          <p class="project-subtitle">人形机器人双臂 CAN 通信驱动</p>
+          <p class="project-summary">从线束连接、电机 ID 探测到 20-200 Hz 轨迹录制与回放，独立完成初代人形机器人双臂 CAN 通信驱动闭环。</p>
+        </div>
+        <div class="media-grid reveal reveal--late">
+          <figure class="media-shell media-shell--video" data-title="双臂轨迹回放">
+            <video muted loop playsinline preload="metadata" src="assets/projects/03_1.mp4"></video>
+            <span class="media-placeholder">03_1.mp4</span>
+          </figure>
+          <figure class="media-shell">
+            <img src="assets/projects/03_2.png" alt="钛虎电机接口" />
+            <span class="media-placeholder">03_2.png</span>
+          </figure>
+        </div>
+      </section>
+
+      <section id="themis-simulation" class="panel project project--reverse" data-panel="themis-simulation">
+        <div class="project-copy reveal">
+          <p class="project-kicker">ROBOT SIMULATION</p>
+          <h2>THEMIS</h2>
+          <p class="project-subtitle">双足机器人仿真 SLAM、导航与回环算法测试</p>
+          <p class="project-summary">完成 Gazebo 场景搭建、RTAB-Map 建图诊断、Nav2 规划器对比，以及 NetVLAD 与 BoW 地点识别评测。</p>
+        </div>
+        <div class="media-grid reveal reveal--late">
+          <figure class="media-shell media-shell--video" data-title="仿真 SLAM">
+            <video muted loop playsinline preload="metadata" src="assets/projects/04_1.mp4"></video>
+            <span class="media-placeholder">04_1.mp4</span>
+          </figure>
+          <figure class="media-shell media-shell--video" data-title="仿真导航">
+            <video muted loop playsinline preload="metadata" src="assets/projects/04_2.mp4"></video>
+            <span class="media-placeholder">04_2.mp4</span>
+          </figure>
+        </div>
+      </section>
+
+      <section id="app" class="panel project" data-panel="app">
+        <div class="project-copy reveal">
+          <p class="project-kicker">AI AGENT</p>
+          <h2>拾贝</h2>
+          <p class="project-subtitle">AI 面试与个人学习 Android App</p>
+          <p class="project-summary">包含模拟面试、题库、知识库、词书、专注计时、API 接入、云端接收和推送等功能。</p>
+        </div>
+        <div class="media-grid reveal reveal--late">
+          <figure class="media-shell media-grid__main">
+            <img src="assets/projects/shibei-app-cover.jpg" alt="识海界面" />
+            <span class="media-placeholder">shibei-app-cover.jpg</span>
+          </figure>
+          <figure class="media-shell">
+            <img src="assets/projects/05_2.png" alt="词书界面" />
+            <span class="media-placeholder">05_2.png</span>
+          </figure>
+          <figure class="media-shell">
+            <img src="assets/projects/05_3.png" alt="专注界面" />
+            <span class="media-placeholder">05_3.png</span>
+          </figure>
+          <figure class="media-shell">
+            <img src="assets/projects/05_4.png" alt="设置界面" />
+            <span class="media-placeholder">05_4.png</span>
+          </figure>
+          <figure class="media-shell">
+            <img src="assets/projects/05_5.png" alt="知识库详情页" />
+            <span class="media-placeholder">05_5.png</span>
+          </figure>
+          <figure class="media-shell">
+            <img src="assets/projects/05_6.png" alt="面试室详情页" />
+            <span class="media-placeholder">05_6.png</span>
+          </figure>
+        </div>
+      </section>
+
+      <section id="agent" class="panel project project--reverse" data-panel="agent">
+        <div class="project-copy reveal">
+          <p class="project-kicker">AI AGENT</p>
+          <h2>Jobpilot</h2>
+          <p class="project-subtitle">简历投递与管理工具</p>
+          <p class="project-summary">包含岗位库、网页提取岗位、投递看板、模拟面试室、简历解析与预览等功能。</p>
+        </div>
+        <div class="media-grid reveal reveal--late">
+          <figure class="media-shell media-grid__main">
+            <img src="assets/projects/06_1.png" alt="工作台" />
+            <span class="media-placeholder">06_1.png</span>
+          </figure>
+          <figure class="media-shell">
+            <img src="assets/projects/06_2.png" alt="岗位库" />
+            <span class="media-placeholder">06_2.png</span>
+          </figure>
+          <figure class="media-shell">
+            <img src="assets/projects/06_3.png" alt="投递看板" />
+            <span class="media-placeholder">06_3.png</span>
+          </figure>
+          <figure class="media-shell">
+            <img src="assets/projects/06_4.png" alt="个人资料" />
+            <span class="media-placeholder">06_4.png</span>
+          </figure>
+          <figure class="media-shell">
+            <img src="assets/projects/06_5.png" alt="模拟面试室" />
+            <span class="media-placeholder">06_5.png</span>
+          </figure>
+          <figure class="media-shell">
+            <img src="assets/projects/06_6.png" alt="设置页" />
+            <span class="media-placeholder">06_6.png</span>
+          </figure>
+        </div>
+      </section>
+
+      <section id="chat-code-agent" class="panel project" data-panel="chat-code-agent">
+        <div class="project-copy reveal">
+          <p class="project-kicker">AI AGENT</p>
+          <h2>Chat Code Agent</h2>
+          <p class="project-subtitle">多模型聊天 / 编程 Agent</p>
+          <p class="project-summary">包含模型聊天和模型编程两大核心功能，接入 MCP、Tavily，设计 Skills 系统、Tools 系统、Cron 定时任务系统等功能。</p>
+        </div>
+        <div class="media-grid reveal reveal--late">
+          <figure class="media-shell media-grid__main">
+            <img src="assets/projects/07_1.png" alt="登录页" />
+            <span class="media-placeholder">07_1.png</span>
+          </figure>
+          <figure class="media-shell">
+            <img src="assets/projects/07_2.png" alt="聊天主界面" />
+            <span class="media-placeholder">07_2.png</span>
+          </figure>
+          <figure class="media-shell">
+            <img src="assets/projects/07_3.png" alt="Cron 定时系统" />
+            <span class="media-placeholder">07_3.png</span>
+          </figure>
+          <figure class="media-shell">
+            <img src="assets/projects/07_4.png" alt="Tools 系统" />
+            <span class="media-placeholder">07_4.png</span>
+          </figure>
+          <figure class="media-shell">
+            <img src="assets/projects/07_5.png" alt="编程主界面" />
+            <span class="media-placeholder">07_5.png</span>
+          </figure>
+          <figure class="media-shell">
+            <img src="assets/projects/07_6.png" alt="终端接入" />
+            <span class="media-placeholder">07_6.png</span>
+          </figure>
+          <figure class="media-shell">
+            <img src="assets/projects/07_7.png" alt="模型 API 接入" />
+            <span class="media-placeholder">07_7.png</span>
+          </figure>
+        </div>
+      </section>
+
+      <section id="more" class="panel panel--continuation" data-panel="more">
+        <div class="continuation reveal"><p>还有更多实验、代码与思考</p><div>···</div></div>
+      </section>
+    </main>
+
+    <div class="progress" aria-hidden="true"><span></span></div>
+    <script src="script.js"></script>
+  </body>
+</html>

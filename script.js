@@ -1,0 +1,178 @@
+const panels = [...document.querySelectorAll(".panel")];
+const progress = document.querySelector(".progress span");
+const root = document.documentElement;
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+      } else {
+        entry.target.querySelectorAll("video").forEach((video) => video.pause());
+      }
+    });
+  },
+  { threshold: 0.28 },
+);
+
+panels.forEach((panel) => observer.observe(panel));
+
+let ticking = false;
+
+function updateScene() {
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const ratio = scrollable > 0 ? Math.min(window.scrollY / scrollable, 1) : 0;
+  const firstScreen = Math.min(window.scrollY / Math.max(window.innerHeight, 1), 1);
+
+  progress.style.transform = `scaleX(${ratio})`;
+  root.style.setProperty("--themis-shift", `${firstScreen * -22}px`);
+  root.style.setProperty("--d1-shift", `${firstScreen * 18}px`);
+  root.style.setProperty("--themis-opacity", "0.94");
+  root.style.setProperty("--d1-opacity", "0.92");
+  ticking = false;
+}
+
+window.addEventListener(
+  "scroll",
+  () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateScene);
+      ticking = true;
+    }
+  },
+  { passive: true },
+);
+
+document.querySelectorAll(".media-shell img").forEach((image) => {
+  if (image.complete && image.naturalWidth === 0) image.style.display = "none";
+  image.addEventListener("error", () => {
+    image.style.display = "none";
+  });
+});
+
+document.querySelectorAll(".media-shell video").forEach((video) => {
+  if (video.networkState === HTMLMediaElement.NETWORK_NO_SOURCE) video.style.display = "none";
+  video.addEventListener("error", () => {
+    video.style.display = "none";
+  });
+});
+
+document.querySelectorAll(".media-grid").forEach((carousel) => {
+  const cards = [...carousel.querySelectorAll(".media-shell")];
+  let activeIndex = 0;
+  let startX = null;
+
+  const pagination = document.createElement("div");
+  pagination.className = "media-pagination";
+  pagination.innerHTML = `
+    <span class="media-pagination__count"></span>
+    <span class="media-pagination__dots">
+      ${cards.map(() => '<i class="media-pagination__dot"></i>').join("")}
+    </span>
+    <span class="media-pagination__hint">左右点击切换</span>
+  `;
+  carousel.appendChild(pagination);
+
+  const hint = document.createElement("div");
+  hint.className = "media-hint";
+  hint.innerHTML = '<span class="media-hint__title"></span>';
+  carousel.appendChild(hint);
+  const hintTitle = hint.querySelector(".media-hint__title");
+
+  const prevBtn = document.createElement("button");
+  prevBtn.type = "button";
+  prevBtn.className = "media-nav media-nav--prev";
+  prevBtn.setAttribute("aria-label", "上一张");
+  prevBtn.innerHTML = '<span aria-hidden="true">‹</span>';
+  prevBtn.addEventListener("click", () => select(activeIndex - 1));
+
+  const nextBtn = document.createElement("button");
+  nextBtn.type = "button";
+  nextBtn.className = "media-nav media-nav--next";
+  nextBtn.setAttribute("aria-label", "下一张");
+  nextBtn.innerHTML = '<span aria-hidden="true">›</span>';
+  nextBtn.addEventListener("click", () => select(activeIndex + 1));
+
+  carousel.appendChild(prevBtn);
+  carousel.appendChild(nextBtn);
+  if (cards.length <= 1) {
+    prevBtn.hidden = true;
+    nextBtn.hidden = true;
+  }
+
+  const count = pagination.querySelector(".media-pagination__count");
+  const dots = [...pagination.querySelectorAll(".media-pagination__dot")];
+
+  function render(playSelectedVideo = false) {
+    cards.forEach((card, index) => {
+      const delta = (index - activeIndex + cards.length) % cards.length;
+      card.classList.remove("is-active", "is-prev", "is-next", "is-hidden");
+
+      if (delta === 0) card.classList.add("is-active");
+      else if (delta === 1) card.classList.add("is-next");
+      else if (delta === cards.length - 1) card.classList.add("is-prev");
+      else card.classList.add("is-hidden");
+
+      const video = card.querySelector("video");
+      if (video) {
+        const isActive = delta === 0;
+        video.controls = isActive;
+        if (!isActive) {
+          video.pause();
+          video.currentTime = 0;
+        } else if (playSelectedVideo && video.style.display !== "none") {
+          video.play().catch(() => {});
+        }
+      }
+    });
+
+    count.textContent = `${String(activeIndex + 1).padStart(2, "0")} / ${String(cards.length).padStart(2, "0")}`;
+    dots.forEach((dot, index) => dot.classList.toggle("is-active", index === activeIndex));
+
+    const activeCard = cards[activeIndex];
+    hintTitle.textContent = activeCard.dataset.title
+      || (activeCard.querySelector("img")?.alt || "")
+      || (activeCard.querySelector(".media-placeholder")?.textContent || "");
+  }
+
+  function select(index, playSelectedVideo = true) {
+    activeIndex = (index + cards.length) % cards.length;
+    render(playSelectedVideo);
+  }
+
+  cards.forEach((card, index) => {
+    card.addEventListener("click", (event) => {
+      if (index === activeIndex || event.target.closest("video")) return;
+      select(index);
+    });
+  });
+
+  carousel.addEventListener("pointerdown", (event) => {
+    if (event.target.closest("video") || event.target.closest(".media-nav")) return;
+    startX = event.clientX;
+    carousel.setPointerCapture(event.pointerId);
+  });
+
+  carousel.addEventListener("pointerup", (event) => {
+    if (startX === null) return;
+    const distance = event.clientX - startX;
+    startX = null;
+    if (Math.abs(distance) < 42) return;
+    select(activeIndex + (distance < 0 ? 1 : -1));
+  });
+
+  carousel.addEventListener("pointercancel", () => {
+    startX = null;
+  });
+
+  carousel.tabIndex = 0;
+  carousel.setAttribute("aria-label", "项目图片与视频轮播，可使用左右方向键切换");
+  carousel.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowRight") select(activeIndex + 1);
+    if (event.key === "ArrowLeft") select(activeIndex - 1);
+  });
+
+  render();
+});
+
+updateScene();
