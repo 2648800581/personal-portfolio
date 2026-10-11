@@ -1,0 +1,23 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "personal-portfolio-visit-counter",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-11",
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "VISIT_COUNTER",
+        "class_name": "VisitCounter"
+      }
+    ]
+  },
+  "exports": {
+    "VisitCounter": {
+      "type": "durable-object",
+      "storage": "sqlite"
+    }
+  },
+  "vars": {
+    "ALLOWED_ORIGINS": "https://2648800581.github.io"
+  }
+}

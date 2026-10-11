@@ -2,6 +2,51 @@ const panels = [...document.querySelectorAll(".panel")];
 const progress = document.querySelector(".progress span");
 const root = document.documentElement;
 
+const visitCounter = document.querySelector(".visit-counter");
+
+async function updateVisitCounter() {
+  if (!visitCounter) return;
+
+  const endpoint = document
+    .querySelector('meta[name="visitor-counter-endpoint"]')
+    ?.content.trim()
+    .replace(/\/$/, "");
+  const status = visitCounter.querySelector("[data-counter-status]");
+
+  if (!endpoint) {
+    visitCounter.dataset.state = "unconfigured";
+    status.textContent = "等待云端接入";
+    return;
+  }
+
+  visitCounter.dataset.state = "loading";
+  status.textContent = "正在统计";
+
+  try {
+    const response = await fetch(`${endpoint}/api/visit`, {
+      method: "POST",
+      headers: { Accept: "application/json" },
+      cache: "no-store",
+    });
+
+    if (!response.ok) throw new Error(`Counter request failed: ${response.status}`);
+
+    const data = await response.json();
+    const counts = data.counts || {};
+    visitCounter.querySelectorAll("[data-country]").forEach((item) => {
+      const value = Number(counts[item.dataset.country] || 0);
+      item.textContent = new Intl.NumberFormat("zh-CN", { notation: "compact" }).format(value);
+    });
+
+    visitCounter.dataset.state = "ready";
+    status.textContent = `累计 ${new Intl.NumberFormat("zh-CN").format(Number(data.total || 0))} 次浏览`;
+  } catch (error) {
+    console.warn("访问统计暂时不可用", error);
+    visitCounter.dataset.state = "offline";
+    status.textContent = "统计暂时离线";
+  }
+}
+
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -176,3 +221,4 @@ document.querySelectorAll(".media-grid").forEach((carousel) => {
 });
 
 updateScene();
+updateVisitCounter();

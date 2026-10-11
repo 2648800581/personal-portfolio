@@ -2,6 +2,8 @@
 
 这是一个无需后端的静态个人作品网站。当前版本完成了亮色首页、THEMIS/D1 固定机器人背景、五个项目概览，以及支持多图和视频的纵向项目叙事结构。
 
+首页包含“全球访问足迹”组件。网页仍通过 GitHub Pages 静态托管，访问数据由 `cloudflare-counter/` 中的独立 Cloudflare Worker 保存；部署步骤见该目录的 README。
+
 背景机器人素材位于 `assets/robots/`。网页当前使用透明背景版本 `agibot-d1-cutout.png`，原始版本 `agibot-d1.png` 仍然保留。
 
 ## 本地预览
