@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="唐天彪的机器人算法与 AI Agent 个人作品展示。" />
+    <meta name="description" content="唐天彪的个人项目作品集，涵盖机器人 SLAM 与自主导航、仿真平台与跨引擎迁移，以及 AI 应用和代码协作智能体。" />
     <meta name="visitor-counter-endpoint" content="https://personal-portfolio-visit-counter.cloudflare-counter.workers.dev" />
-    <title>唐天彪｜机器人算法与 AI Agent</title>
+    <title>唐天彪｜机器人感知与导航 · AI Agent</title>
     <link rel="stylesheet" href="styles.css?v=20261012-1" />
   </head>
   <body>
@@ -54,10 +54,10 @@
             </div>
           </aside>
           <p>
-            我关注机器人如何感知、规划并在真实世界中稳定行动，也在探索如何把大模型能力转化为真正可用的智能体产品。
+            我主要围绕机器人感知与自主导航开展研究和工程实践，关注机器人如何理解环境、规划路径并稳定行动。
           </p>
           <p>
-            我的实践横跨 SLAM 与导航、强化学习运动控制、机器人软硬件集成和 AI Agent 开发。
+            我的实践涵盖 SLAM 与导航、运动控制接口和仿真平台开发，串联传感器、建图定位、路径规划与运控，在四足机器人和双足机器人仿真与真机中进行系统联调与验证。
           </p>
         </div>
 
@@ -81,14 +81,14 @@
               <img src="assets/projects/dual-arm-can-cover.jpg" alt="双臂 CAN 电机驱动" />
               <span class="media-placeholder">dual-arm-can-cover.jpg</span>
             </div>
-            <h2>人形双臂 CAN 驱动</h2>
+            <h2>人形双臂 CAN 控制</h2>
           </article>
           <article class="teaser">
             <div class="teaser__image media-shell">
               <img src="assets/projects/themis-simulation-cover.jpg" alt="THEMIS 仿真" />
               <span class="media-placeholder">themis-simulation-cover.jpg</span>
             </div>
-            <h2>THEMIS Simulation</h2>
+            <h2>THEMIS 仿真导航</h2>
           </article>
           <article class="teaser">
             <div class="teaser__image media-shell">
@@ -110,7 +110,7 @@
           <p class="project-kicker">RESEARCH</p>
           <h2>ParLS-GIS</h2>
           <p class="project-subtitle">广义独立集并行局部搜索算法</p>
-          <p class="project-summary">AAAI 2027 在投、学生一作。独立完成三项核心策略、算法实现、全部实验与论文编写。</p>
+          <p class="project-summary">面向广义独立集问题，设计并实现结合 k-shell 初始化、两步前瞻与多线程协同的并行局部搜索算法，在 278 个基准实例上完成评测。学生第一作者，独立完成算法设计、实现、实验与论文撰写，论文在投 AAAI 2027。</p>
         </div>
         <div class="media-grid reveal reveal--late">
           <figure class="media-shell media-grid__main">
@@ -141,7 +141,7 @@
           <p class="project-kicker">ROBOT NAVIGATION</p>
           <h2>Agibot D1</h2>
           <p class="project-subtitle">四足机器人室内外 SLAM 与导航</p>
-          <p class="project-summary">基于 Mid360、FAST-LIO2 与 Nav2，打通约 20 m × 20 m 场地的建图、定位、规划与控制真机闭环；参与 GNSS + Mid360 的室外 SLAM 与导航。</p>
+          <p class="project-summary">独立搭建基于 Mid360、FAST-LIO2 与 Nav2 的四足机器人室内导航系统，完成感知、建图定位、路径规划及 SDK 控制桥接，在约 20 m × 20 m 室内场地完成真机建图与静态障碍绕行；另参与 GNSS 与 Mid360 的室外建图导航联调。</p>
         </div>
         <div class="media-grid reveal reveal--late">
           <figure class="media-shell media-grid__main">
@@ -165,10 +165,10 @@
 
       <section id="dual-arm" class="panel project" data-panel="dual-arm">
         <div class="project-copy reveal">
-          <p class="project-kicker">ROBOT CONTROL</p>
-          <h2>Dual-arm</h2>
-          <p class="project-subtitle">人形机器人双臂 CAN 通信驱动</p>
-          <p class="project-summary">从线束连接、电机 ID 探测到 20-200 Hz 轨迹录制与回放，独立完成初代人形机器人双臂 CAN 通信驱动闭环。</p>
+          <p class="project-kicker">ROBOT HARDWARE &amp; CONTROL</p>
+          <h2>双臂 CAN 控制</h2>
+          <p class="project-subtitle">人形机器人双臂通信与轨迹回放</p>
+          <p class="project-summary">独立完成双臂线束连接、USB-CAN 通信与关节位置控制，开发轨迹解析和回放工具，将关节位置序列转换为电机控制报文，并在真实机器人双臂上完成轨迹录制与回放验证。</p>
         </div>
         <div class="media-grid reveal reveal--late">
           <figure class="media-shell media-shell--video" data-title="双臂轨迹回放">
@@ -185,41 +185,95 @@
       <section id="themis-simulation" class="panel project project--reverse" data-panel="themis-simulation">
         <div class="project-copy reveal">
           <p class="project-kicker">ROBOT SIMULATION</p>
-          <h2>THEMIS</h2>
-          <p class="project-subtitle">双足机器人仿真 SLAM、导航与回环算法测试</p>
-          <p class="project-summary">完成 Gazebo 场景搭建、RTAB-Map 建图诊断、Nav2 规划器对比，以及 NetVLAD 与 BoW 地点识别评测。</p>
+          <h2>THEMIS 仿真导航</h2>
+          <p class="project-subtitle">双足机器人建图导航集成与方案评测</p>
+          <p class="project-summary">在 Gazebo 中集成 THEMIS 双足机器人的 RGB-D 建图定位与 Nav2 导航，联调步态控制、里程计和 TF，并针对地面与自体误检调试障碍感知。开展规划控制方案及 NetVLAD / BoW 地点识别对比。</p>
         </div>
         <div class="media-grid reveal reveal--late">
-          <figure class="media-shell media-shell--video" data-title="仿真 SLAM">
+          <figure class="media-shell media-shell--video" data-title="THEMIS：RGB-D 仿真建图">
             <video muted loop playsinline preload="metadata" src="assets/projects/04_1.mp4"></video>
             <span class="media-placeholder">04_1.mp4</span>
           </figure>
-          <figure class="media-shell media-shell--video" data-title="仿真导航">
+          <figure class="media-shell media-shell--video" data-title="THEMIS：双足机器人自主导航">
             <video muted loop playsinline preload="metadata" src="assets/projects/04_2.mp4"></video>
             <span class="media-placeholder">04_2.mp4</span>
           </figure>
         </div>
       </section>
 
-      <section id="dual-arm" class="panel project" data-panel="dual-arm">
+      <section id="RTAB-Map" class="panel project" data-panel="RTAB-Map">
         <div class="project-copy reveal">
-          <p class="project-kicker">RTAB-Map</p>
+          <p class="project-kicker">SEMANTIC MAPPING</p>
           <h2>RTAB-Map</h2>
-          <p class="project-subtitle">增量语义对象地图</p>
-          <p class="project-summary">独立开发并在 ZED 2i 真机验证的 RTAB-Map 外挂语义地图层，将 RGB-D 目标观测绑定至 RTAB-Map 位姿图，使语义对象位置随图优化更新。</p>
+          <p class="project-subtitle">随 SLAM 图优化更新的增量语义对象地图</p>
+          <p class="project-summary">独立开发 RTAB-Map 语义对象地图扩展，将 RGB-D 检测组织为具有稳定 ID 和多视点观测的地图对象，通过图节点锚定随 SLAM 优化更新对象位置，并在 ZED 2i 真机上验证对象关联、地图保存与恢复。</p>
         </div>
         <div class="media-grid reveal reveal--late">
-          <figure class="media-shell media-shell--video" data-title="SLAM 构建增量语义地图">
+          <figure class="media-shell media-shell--video" data-title="ZED 2i 实时增量语义建图">
             <video muted loop playsinline preload="metadata" src="assets/projects/rtabmap-semantic-map-demo.mp4"></video>
             <span class="media-placeholder">rtabmap-semantic-map-demo.mp4</span>
           </figure>
           <figure class="media-shell">
-            <img src="assets/projects/rtabmap-semantic-map-01.png" alt="3D 点云地图增量语义构建" />
+            <img src="assets/projects/rtabmap-semantic-map-01.png" alt="三维点云中的语义对象分布" />
             <span class="media-placeholder">rtabmap-semantic-map-01.png</span>
           </figure>
           <figure class="media-shell">
-            <img src="assets/projects/rtabmap-semantic-map-02.png" alt="2D 栅格地图增量语义构建" />
+            <img src="assets/projects/rtabmap-semantic-map-02.png" alt="二维栅格上的语义对象位置" />
             <span class="media-placeholder">rtabmap-semantic-map-02.png</span>
+          </figure>
+          <figure class="media-shell media-shell--video" data-title="密集瓶体场景下的语义对象建图">
+            <video muted loop playsinline preload="metadata" src="assets/projects/7_bottle.mp4"></video>
+            <span class="media-placeholder">7_bottle.mp4</span>
+          </figure>
+          <figure class="media-shell">
+            <img src="assets/projects/7_bottle_3D.png" alt="三维点云中的语义对象分布" />
+            <span class="media-placeholder">7_bottle_3D.png</span>
+          </figure>
+          <figure class="media-shell">
+            <img src="assets/projects/7_bottle_2D.png" alt="二维栅格上的语义对象位置" />
+            <span class="media-placeholder">7_bottle_2D.png</span>
+          </figure>
+        </div>
+      </section>
+
+      <section id="qt-simulation" class="panel project project--reverse" data-panel="qt-simulation">
+        <div class="project-copy reveal">
+          <p class="project-kicker">ROBOT SIMULATION PLATFORM</p>
+          <h2>Qt 仿真平台</h2>
+          <p class="project-subtitle">多机器人建图与导航控制台</p>
+          <p class="project-summary">独立开发面向差速小车与 THEMIS 双足机器人的 Qt / ROS 2 仿真控制台，将 RViz 与 Gazebo 原生视图嵌入统一界面，串联算法配置、建图、定位与导航，并以命名地图库支持地图保存、续建、复用和导入导出。</p>
+        </div>
+        <div class="media-grid reveal reveal--late">
+          <figure class="media-shell media-shell--video" data-title="Qt 仿真平台：交互探索与建图">
+            <video muted loop playsinline preload="metadata" src="assets/projects/Qt仿真平台建图.mp4"></video>
+            <span class="media-placeholder">Qt仿真平台建图.mp4</span>
+          </figure>
+          <figure class="media-shell media-shell--video" data-title="Qt 仿真平台：地图定位与目标导航">
+            <video muted loop playsinline preload="metadata" src="assets/projects/Qt仿真平台导航.mp4"></video>
+            <span class="media-placeholder">Qt仿真平台导航.mp4</span>
+          </figure>
+        </div>
+      </section>
+
+      <section id="themis-mujoco" class="panel project" data-panel="themis-mujoco">
+        <div class="project-copy reveal">
+          <p class="project-kicker">SIM-TO-SIM</p>
+          <h2>THEMIS · MuJoCo</h2>
+          <p class="project-subtitle">Gazebo → MuJoCo 的 Sim-to-Sim 全链路迁移</p>
+          <p class="project-summary">将 THEMIS 双足机器人的运控、建图定位与自主导航从 Gazebo 迁移至 MuJoCo。完成模型转换、接触动力学及传感器适配，复用原状态估计、步态与全身控制，贯通物理反馈、RGB-D 感知和 Nav2 导航，完成行走建图、地图重载定位与绕障导航验证。</p>
+        </div>
+        <div class="media-grid reveal reveal--late">
+          <figure class="media-shell media-shell--video" data-title="MuJoCo：双足机器人运控闭环">
+            <video muted loop playsinline preload="metadata" src="assets/projects/mujoco运控展示.mp4"></video>
+            <span class="media-placeholder">mujoco运控展示.mp4</span>
+          </figure>
+          <figure class="media-shell media-shell--video" data-title="MuJoCo：RGB-D 行走建图">
+            <video muted loop playsinline preload="metadata" src="assets/projects/mujoco建图展示.mp4"></video>
+            <span class="media-placeholder">mujoco建图展示.mp4</span>
+          </figure>
+          <figure class="media-shell media-shell--video" data-title="MuJoCo：地图定位与自主导航">
+            <video muted loop playsinline preload="metadata" src="assets/projects/mujoco导航展示.mp4"></video>
+            <span class="media-placeholder">mujoco导航展示.mp4</span>
           </figure>
         </div>
       </section>
@@ -227,9 +281,9 @@
       <section id="ZED_yolo" class="panel project project--reverse" data-panel="ZED_yolo">
         <div class="project-copy reveal">
           <p class="project-kicker">ZED YOLO</p>
-          <h2>ZED-YOLO识别平台</h2>
-          <p class="project-subtitle">ZED 多模型实时视觉识别与 Web 调试平台</p>
-          <p class="project-summary">独立完成的 Jetson + ZED 2i ROS 2 Web 视觉平台，统一展示 ZED SDK 目标检测和 ONNX 独立检测、实例分割、深度估计结果。</p>
+          <h2>ZED 多模型视觉平台</h2>
+          <p class="project-subtitle">Jetson 上的实时推理与 Web 展示</p>
+          <p class="project-summary">独立开发 Jetson + ZED 2i 视觉调试平台，适配目标检测、实例分割与单目深度 ONNX 模型，接入 TensorRT 推理，并通过 ROS 2 与 Web 界面实现模型热切换、参数调节和识别结果展示，完成 ZED 真机验证。</p>
         </div>
         <div class="media-grid reveal reveal--late">
           <figure class="media-shell media-grid__main">
@@ -257,10 +311,10 @@
 
       <section id="app" class="panel project" data-panel="app">
         <div class="project-copy reveal">
-          <p class="project-kicker">AI AGENT</p>
+          <p class="project-kicker">AI LEARNING APP</p>
           <h2>拾贝</h2>
-          <p class="project-subtitle">AI 面试与个人学习 Android App</p>
-          <p class="project-summary">包含模拟面试、题库、知识库、词书、专注计时、API 接入、云端接收和推送等功能。</p>
+          <p class="project-subtitle">支持离线练习与跨端同步的 AI 学习应用</p>
+          <p class="project-summary">主导移动端学习与模拟面试应用的产品流程和跨端协议设计，通过 AI 协作完成实现。串联电脑端内容导出、手机增量同步与缓存后离线练习，并支持手机端 AI 生成和内容回传。</p>
         </div>
         <div class="media-grid reveal reveal--late">
           <figure class="media-shell media-grid__main">
@@ -292,10 +346,10 @@
 
       <section id="agent" class="panel project project--reverse" data-panel="agent">
         <div class="project-copy reveal">
-          <p class="project-kicker">AI AGENT</p>
-          <h2>Jobpilot</h2>
-          <p class="project-subtitle">简历投递与管理工具</p>
-          <p class="project-summary">包含岗位库、网页提取岗位、投递看板、模拟面试室、简历解析与预览等功能。</p>
+          <p class="project-kicker">AI CAREER WORKSPACE</p>
+          <h2>JobPilot</h2>
+          <p class="project-subtitle">本地优先的 AI 求职工作台</p>
+          <p class="project-summary">主导求职工作台的需求、架构与交互设计，通过 AI 协作完成实现。将简历解析、岗位匹配、投递跟进和项目面试准备连接起来，围绕同一岗位持续保存分析结果与求职进度。</p>
         </div>
         <div class="media-grid reveal reveal--late">
           <figure class="media-shell media-grid__main">
@@ -329,8 +383,8 @@
         <div class="project-copy reveal">
           <p class="project-kicker">AI AGENT</p>
           <h2>Chat Code Agent</h2>
-          <p class="project-subtitle">多模型聊天 / 编程 Agent</p>
-          <p class="project-summary">包含模型聊天和模型编程两大核心功能，接入 MCP、Tavily，设计 Skills 系统、Tools 系统、Cron 定时任务系统等功能。</p>
+          <p class="project-subtitle">集成工具调用与项目上下文的代码协作工作台</p>
+          <p class="project-summary">主导本地代码协作工作台的架构与交互设计，通过 AI 协作完成实现。将流式对话、项目文件、代码编辑与终端整合到同一工作区，支持模型多轮调用工具，并通过本地知识检索、Skills、MCP 和定时任务扩展能力。</p>
         </div>
         <div class="media-grid reveal reveal--late">
           <figure class="media-shell media-grid__main">
