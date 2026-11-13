@@ -6,7 +6,7 @@
     <meta name="description" content="唐天彪的个人项目作品集，涵盖机器人 SLAM 与自主导航、仿真平台与跨引擎迁移，以及 AI 应用和代码协作智能体。" />
     <meta name="visitor-counter-endpoint" content="https://personal-portfolio-visit-counter.cloudflare-counter.workers.dev" />
     <title>唐天彪｜机器人感知与导航 · AI Agent</title>
-    <link rel="stylesheet" href="styles.css?v=20261012-1" />
+    <link rel="stylesheet" href="styles.css?v=20261114-1" />
   </head>
   <body>
     <div class="ambient" aria-hidden="true">
@@ -136,7 +136,7 @@
         </div>
       </section>
 
-      <section id="d1-navigation" class="panel project project--reverse" data-panel="d1-navigation">
+      <section id="d1-navigation" class="panel project" data-panel="d1-navigation">
         <div class="project-copy reveal">
           <p class="project-kicker">ROBOT NAVIGATION</p>
           <h2>Agibot D1</h2>
@@ -182,7 +182,7 @@
         </div>
       </section>
 
-      <section id="themis-simulation" class="panel project project--reverse" data-panel="themis-simulation">
+      <section id="themis-simulation" class="panel project" data-panel="themis-simulation">
         <div class="project-copy reveal">
           <p class="project-kicker">ROBOT SIMULATION</p>
           <h2>THEMIS 仿真导航</h2>
@@ -236,7 +236,34 @@
         </div>
       </section>
 
-      <section id="qt-simulation" class="panel project project--reverse" data-panel="qt-simulation">
+      <section id="apriltag-mapping" class="panel project" data-panel="apriltag-mapping">
+        <div class="project-copy reveal">
+          <p class="project-kicker">TAG-GUIDED SURFACE MAPPING</p>
+          <h2>AprilTag<br />平面提取</h2>
+          <p class="project-subtitle">机器人操作平台感知与拼缝分割</p>
+          <p class="project-summary">基于 ZED 2i、ROS 2 与 RTAB-Map，独立开发标签关联平面提取系统，联合几何、颜色与连通性约束抑制杂物干扰，通过多帧融合、拼缝分割和多标签区域裁切，输出随地图优化校正的平台闭合轮廓、面积与法向，完成双平面构建和单平面拼缝分割实测。</p>
+        </div>
+        <div class="media-grid reveal reveal--late">
+          <figure class="media-shell media-shell--video" data-title="AprilTag：双平面构建实测">
+            <video muted loop playsinline preload="metadata" poster="assets/projects/apriltag-mapping/双平面.png" src="assets/projects/apriltag-mapping/双平面构建.mp4"></video>
+            <span class="media-placeholder">双平面构建.mp4</span>
+          </figure>
+          <figure class="media-shell">
+            <img src="assets/projects/apriltag-mapping/双平面.png" alt="AprilTag 双平面提取：已确认的平台闭合轮廓与填充" />
+            <span class="media-placeholder">双平面.png</span>
+          </figure>
+          <figure class="media-shell media-shell--video" data-title="AprilTag：单平面拼缝分割实测">
+            <video muted loop playsinline preload="metadata" poster="assets/projects/apriltag-mapping/识别拼缝单平面.png" src="assets/projects/apriltag-mapping/识别拼缝单平面.mp4"></video>
+            <span class="media-placeholder">识别拼缝单平面.mp4</span>
+          </figure>
+          <figure class="media-shell">
+            <img src="assets/projects/apriltag-mapping/识别拼缝单平面.png" alt="AprilTag 单平面拼缝分割：保留包含标签的平台区域" />
+            <span class="media-placeholder">识别拼缝单平面.png</span>
+          </figure>
+        </div>
+      </section>
+
+      <section id="qt-simulation" class="panel project" data-panel="qt-simulation">
         <div class="project-copy reveal">
           <p class="project-kicker">ROBOT SIMULATION PLATFORM</p>
           <h2>Qt 仿真平台</h2>
@@ -278,7 +305,7 @@
         </div>
       </section>
 
-      <section id="ZED_yolo" class="panel project project--reverse" data-panel="ZED_yolo">
+      <section id="ZED_yolo" class="panel project" data-panel="ZED_yolo">
         <div class="project-copy reveal">
           <p class="project-kicker">ZED YOLO</p>
           <h2>ZED 多模型视觉平台</h2>
@@ -344,7 +371,7 @@
         </div>
       </section>
 
-      <section id="agent" class="panel project project--reverse" data-panel="agent">
+      <section id="agent" class="panel project" data-panel="agent">
         <div class="project-copy reveal">
           <p class="project-kicker">AI CAREER WORKSPACE</p>
           <h2>JobPilot</h2>

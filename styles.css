@@ -331,9 +331,6 @@ h1 {
   gap: clamp(42px, 7vw, 120px);
 }
 
-.project--reverse .project-copy { order: 2; }
-.project--reverse .media-grid { order: 1; }
-
 .project-copy {
   position: relative;
   z-index: 4;
@@ -596,10 +593,6 @@ video:fullscreen {
     padding-bottom: 0;
   }
 
-  .project--reverse {
-    grid-template-columns: minmax(520px, 1.5fr) minmax(220px, 0.5fr);
-  }
-
   .project-copy {
     min-height: min(78vh, 800px);
     padding: clamp(40px, 5vw, 72px) clamp(20px, 2.2vw, 32px);
@@ -638,9 +631,7 @@ video:fullscreen {
   .project-overview { grid-template-columns: repeat(2, minmax(0, 1fr)); border-radius: 22px; }
   .teaser--more { min-height: 80px; }
   .project { grid-template-columns: 1fr; gap: 30px; min-height: 100svh; }
-  .project--reverse .project-copy, .project--reverse .media-grid { order: initial; }
-  .project-copy { order: 1 !important; }
-  .media-grid { order: 2 !important; min-height: min(68vw, 560px); }
+  .media-grid { min-height: min(68vw, 560px); }
 }
 
 @media (max-width: 720px) {
