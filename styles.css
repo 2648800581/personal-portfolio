@@ -664,6 +664,10 @@ video:fullscreen {
   .media-shell.is-prev { transform: translate3d(-61%, -50%, 0) scale(0.9) rotate(-1.4deg); }
   .media-shell.is-next { transform: translate3d(-39%, -50%, 0) scale(0.93) rotate(1.4deg); }
   .media-pagination { bottom: -2px; }
+  #RTAB-Map .media-pagination { bottom: -16px; gap: 8px; white-space: nowrap; }
+  #RTAB-Map .media-pagination__dots { gap: 4px; }
+  #RTAB-Map .media-pagination__hint { display: none; }
+  #RTAB-Map .media-hint__title { font-size: 14px; }
   .project-copy { padding: 26px 23px; }
   .project h2 { font-size: clamp(42px, 13vw, 68px); }
 }

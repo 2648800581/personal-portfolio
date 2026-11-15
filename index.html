@@ -6,7 +6,7 @@
     <meta name="description" content="唐天彪的个人项目作品集，涵盖机器人 SLAM 与自主导航、仿真平台与跨引擎迁移，以及 AI 应用和代码协作智能体。" />
     <meta name="visitor-counter-endpoint" content="https://personal-portfolio-visit-counter.cloudflare-counter.workers.dev" />
     <title>唐天彪｜机器人感知与导航 · AI Agent</title>
-    <link rel="stylesheet" href="styles.css?v=20261114-1" />
+    <link rel="stylesheet" href="styles.css?v=20261115-1" />
   </head>
   <body>
     <div class="ambient" aria-hidden="true">
@@ -92,10 +92,10 @@
           </article>
           <article class="teaser">
             <div class="teaser__image media-shell">
-              <img src="assets/projects/rtabmap-semantic-map-02.png" alt="rtabmap 语义地图层" />
-              <span class="media-placeholder">rtabmap-semantic-map-02.png</span>
+              <img src="assets/projects/rtabmap-semantic-cluster/聚类3D.png" alt="RTAB-Map 语义实例绿点与区域聚类红点" />
+              <span class="media-placeholder">聚类3D.png</span>
             </div>
-            <h2>RTAB-Map 增量语义地图</h2>
+            <h2>RTAB-Map 语义地图与聚类</h2>
           </article>
           <div class="teaser teaser--more" aria-hidden="true"><span>···</span></div>
         </div>
@@ -205,10 +205,38 @@
         <div class="project-copy reveal">
           <p class="project-kicker">SEMANTIC MAPPING</p>
           <h2>RTAB-Map</h2>
-          <p class="project-subtitle">随 SLAM 图优化更新的增量语义对象地图</p>
-          <p class="project-summary">独立开发 RTAB-Map 语义对象地图扩展，将 RGB-D 检测组织为具有稳定 ID 和多视点观测的地图对象，通过图节点锚定随 SLAM 优化更新对象位置，并在 ZED 2i 真机上验证对象关联、地图保存与恢复。</p>
+          <p class="project-subtitle">增量语义对象地图与同类区域聚类</p>
+          <p class="project-summary">独立开发 RTAB-Map 外挂语义地图层，以 RGB-D 观测、图节点锚定与整帧一对一关联维护对象实例，随 SLAM 优化更新位置；扩展最小包围球约束的同类区域聚类与可见性复核，支持对象删除、地图保存恢复和 ROS 2 界面接入，并在 ZED 2i 及机器人环形建图场景开展真机测试。</p>
         </div>
         <div class="media-grid reveal reveal--late">
+          <figure class="media-shell media-shell--video" data-title="语义区域聚类与对象删除演示">
+            <video muted loop playsinline preload="metadata" poster="assets/projects/rtabmap-semantic-cluster/聚类3D.png" src="assets/projects/rtabmap-semantic-cluster/聚类_删除.mp4"></video>
+            <span class="media-placeholder">聚类_删除.mp4</span>
+          </figure>
+          <figure class="media-shell">
+            <img src="assets/projects/rtabmap-semantic-cluster/聚类3D.png" alt="三维语义地图：对象实例绿点与同类区域聚类红点" />
+            <span class="media-placeholder">聚类3D.png</span>
+          </figure>
+          <figure class="media-shell">
+            <img src="assets/projects/rtabmap-semantic-cluster/聚类2D.png" alt="二维栅格上的语义对象实例与区域聚类" />
+            <span class="media-placeholder">聚类2D.png</span>
+          </figure>
+          <figure class="media-shell">
+            <img src="assets/projects/rtabmap-semantic-cluster/实例对象绿点.png" alt="实例层：独立显示已确认对象的绿点" />
+            <span class="media-placeholder">实例对象绿点.png</span>
+          </figure>
+          <figure class="media-shell">
+            <img src="assets/projects/rtabmap-semantic-cluster/实例对象1m内聚类红点.png" alt="区域层：最小包围球直径上限为 1 米的同类对象聚类红点" />
+            <span class="media-placeholder">实例对象1m内聚类红点.png</span>
+          </figure>
+          <figure class="media-shell media-shell--video" data-title="Bottle / Chair 多类别语义建图演示">
+            <video muted loop playsinline preload="metadata" src="assets/projects/rtabmap-semantic-cluster/bottle_chair.mp4"></video>
+            <span class="media-placeholder">bottle_chair.mp4</span>
+          </figure>
+          <figure class="media-shell">
+            <img src="assets/projects/rtabmap-semantic-cluster/机器人端建图语义展示.png" alt="机器人端二维地图中的语义对象位置" />
+            <span class="media-placeholder">机器人端建图语义展示.png</span>
+          </figure>
           <figure class="media-shell media-shell--video" data-title="ZED 2i 实时增量语义建图">
             <video muted loop playsinline preload="metadata" src="assets/projects/rtabmap-semantic-map-demo.mp4"></video>
             <span class="media-placeholder">rtabmap-semantic-map-demo.mp4</span>
